@@ -4,7 +4,7 @@
 
 
 ## Demo
-https://amos-do.github.io/Mr_Houdao_store_cli2/
+https://amos-do.github.io/Mr_Houdao_store/
 
 ## 簡介
 > 完整電商前後台網站，後台能讓店家自行上架商品、查看訂單以及設定優惠券等功能，前台電商網站能讓消費者享受瀏覽網站，了解厚道先生對商品的用心，凸顯厚道先生的特色，並且完整的購物流程，能讓消費者買到健康又美味的果醬。  
@@ -27,7 +27,7 @@ https://amos-do.github.io/Mr_Houdao_store_cli2/
 ## 主要練習
 
 * Vue.js
-* VueCLI (2)
+* VueCLI (3)
 * Vuex 管理
 * VueRouter
 * VeeValidate 驗證
