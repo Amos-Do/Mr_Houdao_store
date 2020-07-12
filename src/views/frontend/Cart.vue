@@ -1,6 +1,6 @@
 <template>
   <div class="mt-7">
-    <div class="container p-3 p-md-4">
+    <div class="container p-3 p-md-4 auto-height">
       <div class="jam-icon text-center">
         <img src="@/assets/images/jam.png" />
       </div>

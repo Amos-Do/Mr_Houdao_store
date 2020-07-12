@@ -27,8 +27,8 @@ export default {
       const api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOMPATH}/order/${orderId}`;
       context.commit('LOADING', true, { root: true });
       axios.get(api).then((response) => {
-        context.commit('LOADING', false, { root: true });
         context.commit('GETORDER', response.data.order);
+        context.commit('LOADING', false, { root: true });
       });
     },
     payOrder(context, orderId) {
@@ -36,8 +36,8 @@ export default {
       context.commit('LOADING', true, { root: true });
       axios.post(api).then((response) => {
         if (response.data.success) {
-          context.commit('LOADING', false, { root: true });
           router.replace(`/pay_complate/${orderId}`);
+          context.commit('LOADING', false, { root: true });
         } else {
           context.dispatch('alertModules/updateMessage', { message: '付款失敗，請稍後再結帳', status: 'danger' }, { root: true });
         }

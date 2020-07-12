@@ -1,6 +1,6 @@
 <template>
   <div class="mt-7">
-    <div class="container p-3 p-md-4">
+    <div class="container p-3 p-md-4 auto-height">
       <div class="jam-icon text-center">
         <img src="@/assets/images/jam.png" />
       </div>
@@ -207,6 +207,10 @@ export default {
     creatOrder() {
       const vm = this;
       const order = vm.form;
+      if (vm.cart.total === 0) {
+        vm.$router.back();
+        return;
+      }
       vm.$refs.form.validate().then((success) => {
         if (success) {
           vm.$store.dispatch('orderModules/creatOrder', order);
@@ -226,6 +230,10 @@ export default {
     if (vm.isLeave) {
       next();
     } else {
+      if (vm.cart.total === 0) {
+        next();
+        return;
+      }
       $('#CreateOrder').modal('show');
 
       $('.confirm').on('click', () => {
