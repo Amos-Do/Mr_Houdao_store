@@ -1,0 +1,67 @@
+.wrap {
+  overflow: hidden !important;
+}
+
+.nav {
+  text-align: center;
+  transition: .5s ease;
+  @include media-breakpoint-down(md) {
+    background-color: white;
+  }
+  .nav-item {
+    transition: .2s ease;
+    &:hover,&.show,& .active{
+      color: $secondary;
+      border-bottom: 3px solid $secondary;
+    }
+  }
+  
+  
+}
+.nav-light {
+  background-color: white;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.233);
+}
+
+.dropdown-toggle{
+  &:after{
+    border:0;
+  }
+}
+
+
+.cart-icon {
+  .badge {
+    position: absolute;
+    top: 5%;
+    right: 26%;
+    
+  }
+  
+  table {
+    button {
+      &:hover,&:active{
+        color: $light !important;
+      }
+      
+    }
+  }
+}
+.pulse-animated {
+  animation: pulse 1s infinite;
+}
+.bounce-animated {
+  animation: bounce 1s;
+}
+
+.btn-light-red {
+  color: $light;
+}
+
+.cart-product {
+  font-weight: 400;
+  white-space: nowrap;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
