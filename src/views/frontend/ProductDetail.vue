@@ -5,7 +5,7 @@
         <img src="@/assets/images/loading.png" />
       </template>
     </loading>
-    <div class="container p-3 p-md-4">
+    <div class="container p-3 p-md-4 auto-height">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white">
           <li class="breadcrumb-item">
