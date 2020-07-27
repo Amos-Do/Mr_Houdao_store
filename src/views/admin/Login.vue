@@ -5,6 +5,7 @@
         <img src="@/assets/images/loading.png" />
       </template>
     </loading>
+    <Alert />
     <div class="bg-login-image vh-100">
       <div class="container">
         <div class="row justify-content-center">
@@ -78,6 +79,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import Alert from '../../components/AlertMessage.vue';
 
 export default {
   data() {
@@ -102,10 +104,17 @@ export default {
           vm.$router.push('/admin/products_list');
         } else {
           vm.$store.commit('LOADING', false, { root: true });
-          alert('資料輸入錯誤！');
+          vm.$store.dispatch(
+            'alertModules/updateMessage',
+            { message: response.data.message, status: 'danger' },
+            { root: true },
+          );
         }
       });
     },
+  },
+  components: {
+    Alert,
   },
 };
 </script>
