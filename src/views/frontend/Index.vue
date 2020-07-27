@@ -182,11 +182,9 @@
         <h3 class="jam-title">NEW PRODUCTS</h3>
         <div class="row">
           <div class="col-lg-4 col-md-6 col-12 mb-3" v-for="item in newProducts" :key="item.id">
-            <div class="card product-card">
+            <div class="card product-card" @click="goProductDetail(item.id)">
               <div class="product-img" :style="{ 'backgroundImage':`url('${item.imageUrl}')` }">
-                <router-link :to="{ name: 'ProductDetail', params: { id: item.id }}">
-                  <div class="more">詳細商品...</div>
-                </router-link>
+                <div class="more">詳細商品...</div>
               </div>
               <div class="card-body p-0 pt-4 pm-2 align-items-">
                 <h5 class="card-title">{{ item.title }}</h5>
@@ -201,7 +199,7 @@
                 <button
                   type="button"
                   class="btn btn-outline-secondary w-100 mt-3"
-                  @click="addtoCart(item.id)"
+                  @click.stop="addtoCart(item.id)"
                 >加入購物車</button>
               </div>
             </div>
@@ -268,6 +266,9 @@ export default {
     scrollTarget(targetId) {
       const targetPos = $(targetId).offset().top;
       $('html, body').animate({ scrollTop: targetPos - 60 }, 1000);
+    },
+    goProductDetail(productId) {
+      this.$store.dispatch('productsModules/goProductDetail', productId);
     },
   },
   mounted() {

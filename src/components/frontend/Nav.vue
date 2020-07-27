@@ -29,7 +29,7 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <router-link class="nav-link px-md-3" to="/index">首頁</router-link>
+              <router-link class="nav-link px-md-3" to="/index" >首頁</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link px-md-3" to="/products">購物商場</router-link>
@@ -177,6 +177,10 @@ export default {
       e.preventDefault();
       e.stopPropagation();
       return false;
+    });
+
+    $('.nav-item').on('click', () => {
+      $('#navbarSupportedContent').removeClass('show');
     });
   },
 };

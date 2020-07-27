@@ -1,4 +1,5 @@
 import axios from 'axios';
+import router from '../router';
 
 export default {
   // state 屬於模組區域變數
@@ -27,6 +28,9 @@ export default {
         context.commit('LOADING', false, { root: true });
         context.commit('PRODUCT', response.data.product);
       });
+    },
+    goProductDetail(context, productId) {
+      router.push(`/product_detail/${productId}`);
     },
   },
   mutations: {

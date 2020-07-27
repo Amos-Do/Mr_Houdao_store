@@ -95,6 +95,7 @@
                       class="btn btn-outline-secondary"
                       type="button"
                       @click="addCouponCode"
+                      :disabled="couponCode ? false : true"
                     >套用優惠碼</button>
                   </div>
                 </div>
@@ -114,6 +115,7 @@
                       class="btn btn-outline-secondary"
                       type="button"
                       @click="addCouponCode"
+                      :disabled="couponCode ? false : true"
                     >套用優惠碼</button>
                   </div>
                 </div>

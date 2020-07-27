@@ -34,7 +34,7 @@
                   <font-awesome-icon icon="certificate" class="text-light-red" />
                   <font-awesome-layers-text
                     class="fa-inverse"
-                    transform="shrink-11.5 rotate--30"
+                    transform="shrink-8 rotate--30"
                     value="NEW"
                     style="font-weight:900"
                   />
@@ -60,7 +60,7 @@
               v-for="item in categoryProducts"
               :key="item.id"
             >
-              <div class="card product-card">
+              <div class="card product-card" @click="goProductDetail(item.id)">
                 <div class="product-img" :style="{ 'backgroundImage':`url('${item.imageUrl}')` }">
                   <router-link :to="{ name: 'ProductDetail', params: { id: item.id }}">
                     <div class="more">詳細商品...</div>
@@ -79,7 +79,7 @@
                   <button
                     type="button"
                     class="btn btn-outline-secondary w-100 mt-3"
-                    @click="addtoCart(item.id)"
+                    @click.stop="addtoCart(item.id)"
                     :disabled="isLoading"
                   >加入購物車</button>
                 </div>
@@ -133,6 +133,9 @@ export default {
       } else {
         this.$store.dispatch('cartModules/addtoCart', { id, qty });
       }
+    },
+    goProductDetail(productId) {
+      this.$store.dispatch('productsModules/goProductDetail', productId);
     },
   },
 };
