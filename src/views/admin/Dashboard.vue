@@ -38,5 +38,12 @@ export default {
   computed: {
     ...mapGetters(['isLoading']),
   },
+  created() {
+    const cookieValue = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('hexToken='))
+      .split('=')[1];
+    this.$http.defaults.headers.common.Authorization = cookieValue;
+  },
 };
 </script>

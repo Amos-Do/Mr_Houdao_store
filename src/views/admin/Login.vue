@@ -101,6 +101,8 @@ export default {
       vm.$http.post(api, vm.user).then((response) => {
         if (response.data.success) {
           vm.$store.commit('LOADING', false, { root: true });
+          const { expired, token } = response.data;
+          document.cookie = `hexToken=${token}; expires=${new Date(expired)};`;
           vm.$router.push('/admin/products_list');
         } else {
           vm.$store.commit('LOADING', false, { root: true });
